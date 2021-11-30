@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Rotate Puzzle</title>
+		<style>
+			html, body {
+				/* margin: 0px; */
+				/* padding: 0px; */
+				box-sizing: border-box;
+			}
+
+			.flex { display: flex; }
+			.flex-col { flex-direction: column; }
+			.flex-row { flex-direction: row; }
+			.just-evenly { justify-content: space-evenly; }
+			.align-start { align-items: flex-start; }
+			.align-center { align-items: center; }
+
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				align-items: center;
+			}
+
+			#canvas {
+				display: grid;
+			}
+
+			#canvas span {
+				display: inline-block;
+				background-image: url("puzzle.jpg");
+			}
+
+			.controls {
+				margin-left: 1rem;
+			}
+			.controls > * {
+				margin-bottom: 0.5rem;
+			}
+      .mg {
+        margin: 50px 10px;
+      }
+      #imgContainer {
+				height: 500px;
+				width: 500px;
+        display: flex;
+        flex-wrap: wrap;
+				border: 1px solid yellow;
+      }
+		</style>
+	</head>
+	<body class="flex flex-col just-evenly align-center">
+		<h1 id="title">Rotate puzzle</h1>
+		<div class="flex flex-row just-evenly align-start">
+			<div id="canvas"></div>
+			<fieldset class="controls flex flex-col">
+				<legend>Contrôles</legend>
+				<label>Découpage :
+					<input id="cells-quantity" type="number" min="4" max="16" step="1" value="6" >
+				</label>
+				<button id="start-game" onclick="divideImg()">Lancer la partie</button>
+				<button id="resolve" onclick="resetImage()">Résoudre</button>
+			</fieldset>
+		</div>
+
+		<div style="display: flex;">
+			<div id="imgContainer" class="mg">
+				<img src="../assets/moon.png" alt="" width="500" height="500"/>
+			</div>
+			
+			<img src="../assets/moon.png" alt="" width="500" height="500" id="img" class="mg"/>
+		</div>
+    
+    
+	</body>
+
+	<script type="text/javascript" src="../scripts/dom/puzzle.js"></script>
+</html>
